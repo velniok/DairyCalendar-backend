@@ -1,8 +1,8 @@
 const AuthController = require('../controllers/AuthController')
 const EventController = require('../controllers/EventController')
 
-const checkAuth = require('../moddlewares/checkAuth')
-const checkUser = require('../moddlewares/checkUser')
+const checkAuth = require('../middlewares/checkAuth')
+const checkUser = require('../middlewares/checkUser')
 
 const Router = require('express').Router
 

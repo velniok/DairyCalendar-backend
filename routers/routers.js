@@ -1,5 +1,6 @@
 const AuthController = require('../controllers/AuthController')
 const EventController = require('../controllers/EventController')
+const UserController = require('../controllers/UserController')
 
 const checkAuth = require('../middlewares/checkAuth')
 const checkUser = require('../middlewares/checkUser')
@@ -11,6 +12,8 @@ const router = new Router()
 router.post('/auth/register', AuthController.register)
 router.post('/auth/login', AuthController.login)
 router.get('/auth/me', checkAuth, AuthController.authMe)
+
+router.get('/user/get/:id', UserController.getUser)
 
 router.post('/event/create', checkUser, EventController.create)
 router.get('/event/get/:userId', EventController.get)

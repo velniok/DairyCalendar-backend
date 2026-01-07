@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
-class EventController {
+class AuthController {
     async register (req, res) {
         try {
             const username = req.body.username
@@ -109,4 +109,4 @@ class EventController {
     }
 }
 
-module.exports = new EventController()
+module.exports = new AuthController()

@@ -14,6 +14,7 @@ router.post('/auth/login', AuthController.login)
 router.get('/auth/me', checkAuth, AuthController.authMe)
 
 router.get('/user/get/:id', UserController.getUser)
+router.post('/user/search', UserController.searchUser)
 
 router.post('/event/create', checkUser, EventController.create)
 router.get('/event/get/:userId', EventController.get)

@@ -22,6 +22,25 @@ class UserController {
         }
     }
 
+    async searchUser (req, res) {
+        try {
+            const value = req.body.value
+
+            const users = await UserModel.find({
+                username: {
+                    $regex: value,
+                    $options: 'i'
+                }
+            })
+
+            res.json(users)
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({
+                message: 'Не удалось найти пользователей'
+            })
+        }
+    }
 }
 
 module.exports = new UserController()

@@ -1,6 +1,27 @@
 const UserModel = require("../models/User")
 
 class UserController {
+    
+    async editUser (req, res) {
+        try {
+            const userId = req.params.userId
+            const username = req.body.username
+
+            const user = await UserModel.findById(userId)
+
+            user.username = username
+            
+            user.save()
+
+            res.json(user)
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({
+                message: 'Не удалось получить пользователя'
+            })
+        }
+    }
+
     async getUser (req, res) {
         try {
             const userId = req.params.id
